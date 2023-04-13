@@ -1,0 +1,32 @@
+<div class="container">
+    <a routerLink="/ajoutproduit" class="btn btn-success">Ajout</a>
+    <table class="table" *ngIf="productList.length">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let productList of productList">
+            <td>{{productList.id}}</td>
+            <td>{{productList.designation}}</td>
+            <td>{{productList.prix}}</td>
+            <td>{{productList.qte}}</td>
+            <td>{{productList.description}}</td>
+            <td>
+              <div class="d-flex gap-2 ">
+                <a class="btn btn-secondary" type="button" [routerLink]="['/modifProduit', productList.id]">Modifier</a>
+                <button class="btn btn-danger" type="button" (click)="deleteProduct(productList.id)">Supprimer</button>
+              </div>
+            </td>
+          </tr>
+   
+        </tbody>
+      </table>
+</div>
+

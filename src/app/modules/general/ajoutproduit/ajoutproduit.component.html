@@ -1,0 +1,53 @@
+
+
+
+<div class="container">
+
+    <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Ajout d'un produit</h4>
+          <div class="row g-3">
+    
+
+            <div class="col-12">
+              <label for="username" class="form-label">id</label>
+              <div class="input-group has-validation">
+                <input  type="text" class="form-control" id="id" placeholder="id auto increment" required="" disabled>
+
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="text" class="form-label">designation <span class="text-muted"></span></label>
+              <input  [(ngModel)]="newPorduct.designation" type="email" class="form-control" id="email" placeholder="designation">
+
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Prix</label>
+              <input [(ngModel)]="newPorduct.prix" type="number" class="form-control" id="address" placeholder="prix" required="">
+
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label">Quantite </label>
+              <input [(ngModel)]="newPorduct.qte" type="number" class="form-control" id="address2" placeholder="Quantite">
+            </div>
+
+
+            <div class="col-12">
+               
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                    <textarea [(ngModel)]="newPorduct.description" class="form-control w-100" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+                  </div>
+            </div>
+          </div>
+
+      
+          <hr class="my-4">
+
+
+          <button class="w-100 btn btn-success btn-lg" *ngIf="typeOf(currentRoute) != 'number'" (click)="addProductFunc()" >Ajout</button>
+          <button class="w-100 btn btn-success btn-lg" *ngIf="typeOf(currentRoute) == 'number'" (click)="addProductFunc()" >Modifier</button>
+      </div>
+</div>

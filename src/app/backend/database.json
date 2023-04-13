@@ -1,0 +1,18 @@
+{
+  "produit": [
+    {
+      "id": 2,
+      "designation": "chassures",
+      "prix": 3,
+      "qte": 3,
+      "description": "chassures pour homme"
+    },
+    {
+      "id": 3,
+      "designation": "chassures",
+      "prix": 3,
+      "qte": 3,
+      "description": "chassures pour homme"
+    }
+  ]
+}

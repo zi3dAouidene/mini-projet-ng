@@ -1,0 +1,24 @@
+<div class="container px-4 py-5" id="hanging-icons">
+ 
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col text-center" *ngFor="let livre of livre ; let index = index; ">
+        <div class="card">
+            <div class="card-header   w-100">
+                <div  style="display: inline-grid ;">
+                    <button class="btn btn-danger " >
+                        new
+                </button>
+                <a [routerLink]="['/livre/',livre.id]" (click)="clicked(index)"> {{livre.title | uppercase}} </a>
+                </div>
+              
+              </div>
+            <div class="card-body">
+                <img src="{{livre.imgUrl}}" alt="">
+            </div>
+        </div>
+      
+      </div>
+
+    </div>
+
+  </div>

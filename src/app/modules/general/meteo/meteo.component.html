@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="rounded-3 bg-info">
+    <h2 class="text-center">Meteo</h2>
+    <div class="input-group flex-nowrap p-3">
+      <input
+        [(ngModel)]="city"
+        type="text"
+        class="form-control"
+        placeholder="Give me city name"
+        aria-label="Username"
+        aria-describedby="addon-wrapping"
+      />
+    </div>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-primary m-3" (click)="getCurrentWeather()">
+        Current weather
+      </button>
+      <button class="btn btn-primary m-3" (click)="getFiveDaysWearther()">
+        Furture 5 day weather
+      </button>
+    </div>
+  </div>
+  <div>
+    <div class="col-md-12 mx-auto mt-3" *ngIf="meteoCureent">
+      <div
+        class="row g-0 border overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="d-inline-block mb-2 text-primary">
+            {{ meteoCureent.name }}, {{ meteoCureent.sys.country }}
+          </h3>
+          <p class="mb-0">{{ meteoCurrentDate }}</p>
+          <div class="col-auto" style="width: 100px; height: 100px">
+            <img
+              src="http://openweathermap.org/img/w/{{
+                meteoCureent.weather[0].icon
+              }}.png"
+              class="card-img-bottom img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+      <p class="mb-0">{{ meteoCureent.main.temp + "C°" }}</p>
+      <p class="mb-0">{{ meteoCureent.weather[0].description }}</p>
+      <div></div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="fw-bold">Longtitude</td>
+            <td>{{ meteoCureent.coord.lon }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Latitude</td>
+            <td>{{ meteoCureent.coord.lat }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Humidity</td>
+            <td>{{ meteoCureent.main.humidity }}</td>
+          </tr>
+          <tr>
+            <td class="fw-bold">Pressure</td>
+            <td>{{ meteoCureent.main.pressure }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-12 mx-auto mt-3 table-responsive" *ngIf="weather.length">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">icone</th>
+            <th scope="col">Temperature</th>
+            <th scope="col">Temperature Min</th>
+            <th scope="col">Temperature Max</th>
+            <th scope="col">Humidity</th>
+            <th scope="col">Pressure</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let weather of weather">
+          <tr>
+            <td>{{ weather.dt_txt }}</td>
+            <td>
+              <img
+                src="http://openweathermap.org/img/w/{{
+                  weather.weather[0].icon
+                }}.png"
+                style="width: 30px; height: 30px"
+                class="img-fluid"
+              />
+            </td>
+            <td>{{ weather.main.temp }}</td>
+            <td>{{ weather.main.temp_min }}</td>
+            <td>{{ weather.main.temp_max }}</td>
+            <td>{{ weather.main.humidity }}</td>
+            <td>{{ weather.main.pressure }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
